@@ -1,0 +1,124 @@
+
+import io.appium.java_client.android.AndroidDriver;
+import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.openqa.selenium.*;
+
+public class SampleTest {
+
+  private AndroidDriver driver;
+  private PORT = 4723;
+  private HOST = "127.0.0.1";
+  
+
+  @Before
+  public void setUp() throws MalformedURLException {
+    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    desiredCapabilities.setCapability("platformName", "Android");
+    desiredCapabilities.setCapability("appium:deviceName", "emulator");
+    desiredCapabilities.setCapability("appium:automationName", "uiautomator2");
+    desiredCapabilities.setCapability("appium:appPackage", "com.google.android.calculator");
+    desiredCapabilities.setCapability("appium:appActivity", "com.android.calculator2.Calculator");
+    desiredCapabilities.setCapability("appium:ensureWebviewsHavePages", true);
+    desiredCapabilities.setCapability("appium:nativeWebScreenshot", true);
+    desiredCapabilities.setCapability("appium:newCommandTimeout", 3600);
+    desiredCapabilities.setCapability("appium:connectHardwareKeyboard", true);
+
+    
+
+    private URL getUrl(String host, String port) {
+        try {
+            return new URL(host+":"+port);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    driver = new AndroidDriver(this.remoteUrl(HOST, PORT), desiredCapabilities);
+  }
+
+  @Test
+  public void sampleTest() {
+    WebElement el1 = (WebElement) driver.findElementByAccessibilityId("2");
+    el1.click();
+    WebElement el2 = (WebElement) driver.findElementByAccessibilityId("plus");
+    el2.click();
+    WebElement el3 = (WebElement) driver.findElementByAccessibilityId("2");
+    el3.click();
+    WebElement el4 = (WebElement) driver.findElementById("com.google.android.calculator:id/result_preview");
+    el4.click();
+  }
+
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+}
+
+
+==========================================================================
+import io.appium.java_client.android.AndroidDriver;
+import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.openqa.selenium.*;
+
+public class SampleTest {
+
+  private AndroidDriver driver;
+  private PORT = 4723;
+  private HOST = "127.0.0.1";
+  
+
+  @Before
+  public void setUp() throws MalformedURLException {
+    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    desiredCapabilities.setCapability("platformName", "Android");
+    desiredCapabilities.setCapability("appium:deviceName", "emulator-5554");
+    desiredCapabilities.setCapability("appium:automationName", "uiautomator2");
+    desiredCapabilities.setCapability("appium:appPackage", "com.google.android.calculator");
+    desiredCapabilities.setCapability("appium:appActivity", "com.android.calculator2.Calculator");
+    desiredCapabilities.setCapability("appium:ensureWebviewsHavePages", true);
+    desiredCapabilities.setCapability("appium:nativeWebScreenshot", true);
+    desiredCapabilities.setCapability("appium:newCommandTimeout", 3600);
+    desiredCapabilities.setCapability("appium:connectHardwareKeyboard", true);
+
+    
+
+    private URL getUrl(String host, String port) {
+        try {
+            return new URL(host+":"+port);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    driver = new AndroidDriver(this.remoteUrl(HOST, PORT), desiredCapabilities);
+  }
+
+  @Test
+  public void sampleTest() {
+    WebElement el6 = (WebElement) driver.findElementByAccessibilityId("3");
+    el6.click();
+    WebElement el7 = (WebElement) driver.findElementByAccessibilityId("plus");
+    el7.click();
+    WebElement el8 = (WebElement) driver.findElementByAccessibilityId("3");
+    el8.click();
+    WebElement el9 = (WebElement) driver.findElementById("com.google.android.calculator:id/result_preview");
+    el9.click();
+  }
+
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+}
